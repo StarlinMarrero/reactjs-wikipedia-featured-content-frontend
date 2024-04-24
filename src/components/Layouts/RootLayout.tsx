@@ -10,7 +10,9 @@ export const RootLayout = ({ children }: IRootLayoutProps) => {
         <>
             <Navbar />
 
-            <div className="container-fluid mt-2">{children}</div>
+            <div style={{ minHeight: "calc(100vh - 4rem)" }} className="h-full flex-1 overflow-y-auto md:pt-4 pt-4 px-6 bg-base-200">
+                {children}
+            </div>
         </>
     );
 };

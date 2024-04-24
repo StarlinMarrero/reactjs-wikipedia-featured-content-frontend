@@ -12,9 +12,11 @@ enum EnumButtonStyleTypes {
     LINK = "btn-link",
 }
 
+type EnumButtonStyleTypesKeys = `${EnumButtonStyleTypes}`;
+
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
-    styleType?: EnumButtonStyleTypes;
+    styleType?: EnumButtonStyleTypesKeys;
 }
 
 const Button = ({ children, styleType, ...rest }: IButtonProps) => {

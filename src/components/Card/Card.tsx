@@ -9,29 +9,16 @@ interface IProps {
     footer?: React.ReactNode;
 }
 
-{
-    /* <div className="card w-96 bg-base-100 shadow-xl image-full">
-  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Shoes!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
-    </div>
-  </div>
-</div> */
-}
-
-const Card = ({ children, imgSrc, style, className = "w-96 bg-base-100 shadow-xl image-full", imgStyle, footer }: IProps) => {
+const Card = ({ children, imgSrc, style, className = "w-full p-6 bg-base-100 shadow-xl mt-6 flex flex-col", imgStyle, footer }: IProps) => {
     return (
         <>
             <div className={`card ${className}`} style={style}>
                 {imgSrc && (
-                    <figure>
-                        <img src={imgSrc} style={imgStyle} />
+                    <figure className="flex-grow-0 flex-shrink-0">
+                        <img src={imgSrc} style={imgStyle} className="w-full h-auto" />
                     </figure>
                 )}
-                <div className="card-body">
+                <div className="card-body p-1">
                     {children}
                     {footer && <div className="card-actions justify-end">{footer}</div>}
                 </div>

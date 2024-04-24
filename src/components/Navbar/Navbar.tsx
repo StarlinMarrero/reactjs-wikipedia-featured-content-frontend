@@ -1,26 +1,28 @@
-import React from "react";
-import { NavItem } from "./NavItem";
+import React, { useEffect, useState } from "react";
+import localStorageHelper from "../../helpers/localStorage.helper";
 
 const Navbar = () => {
+    const themeSelected = localStorageHelper.getItem("theme") || "light";
+    const [currentTheme, setCurrentTheme] = useState<"light" | "dark">(themeSelected);
+
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        localStorageHelper.setItem("theme", currentTheme);
+    }, [currentTheme]);
+
+    const toggleTheme = () => {
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setCurrentTheme(newTheme);
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">
-                    Navbar
-                </a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
-                        <NavItem text="Home" active={true} />
-                        <NavItem text="Features" />
-                        <NavItem text="Pricing" />
-                        <NavItem text="Disabled" disabled={true} />
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <div className="navbar sticky top-0 bg-base-100 z-10 shadow-md">
+            <a className="btn btn-ghost text-xl">Wikipedia Feeds</a>
+            <div className="flex-1"></div>
+            <button className="btn btn-ghost" onClick={toggleTheme}>
+                <span>{currentTheme === "light" ? "🌙" : "☀️"}</span>
+            </button>
+        </div>
     );
 };
 
