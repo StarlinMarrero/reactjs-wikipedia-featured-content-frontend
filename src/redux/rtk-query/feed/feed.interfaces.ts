@@ -81,12 +81,38 @@ export interface Artist {
 export interface Description {
     html: string;
     text: string;
-    lang: Lang;
+    lang: EnumLanguage;
 }
 
-export enum Lang {
-    En = "en",
+export enum EnumLanguage {
+    Bengali = "bn",
+    German = "de",
+    Greek = "el",
+    English = "en",
+    Hebrew = "he",
+    Hungarian = "hu",
+    Japanese = "ja",
+    Latin = "la",
+    Sindhi = "sd",
+    Swedish = "sv",
+    Urdu = "ur",
+    Chinese = "zh",
+    Bosnian = "bs",
+    Danish = "da",
+    Spanish = "es",
+    Finnish = "fi",
+    French = "fr",
+    Korean = "ko",
+    NorwegianBokmal = "no",
+    Polish = "pl",
+    Portuguese = "pt",
+    Russian = "ru",
+    Scots = "sco",
+    Vietnamese = "vi",
+    Arabic = "ar",
 }
+
+export type TypeLanguage = `${EnumLanguage}`;
 
 export interface ThumbnailClass {
     source: string;
@@ -126,7 +152,7 @@ export interface Tfa {
     pageid: number;
     thumbnail?: ThumbnailClass;
     originalimage?: ThumbnailClass;
-    lang: Lang;
+    lang: EnumLanguage;
     dir: Dir;
     revision: string;
     tid: string;

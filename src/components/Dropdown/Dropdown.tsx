@@ -8,7 +8,7 @@ interface IProps {
 
 const Dropdown = ({ title, items }: IProps) => {
     return (
-        <div className="dropdown dropdown-bottom">
+        <div className="dropdown">
             <Button tabIndex={0} role="button" className="btn m-1">
                 {title}
             </Button>
