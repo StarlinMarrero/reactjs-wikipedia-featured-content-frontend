@@ -22,7 +22,7 @@ const Tab = ({ tabs, handleTabChangeCallback }: TabComponentProps) => {
         <div role="tablist" className="tabs tabs-lifted">
             {tabs.map((tab, index) => (
                 <React.Fragment key={index}>
-                    <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label={tab.title} checked={activeTab === index} onChange={() => handleTabChange(index)} />
+                    <input style={{width: "max-content"}} type="radio" role="tab" className="tab" aria-label={tab.title} checked={activeTab === index} onChange={() => handleTabChange(index)} />
                     <div role="tabpanel" className={`tab-content bg-base-100 border-base-300 rounded-box p-6 ${activeTab === index ? "" : "hidden"}`}>
                         {tab.content}
                     </div>

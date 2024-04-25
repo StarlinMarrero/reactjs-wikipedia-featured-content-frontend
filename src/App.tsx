@@ -94,12 +94,8 @@ function App() {
     return (
         <>
             <RootLayout>
-                <h1>Wikipedia Feeds</h1>
                 <div className="mb-3">
-                    {/* <div className="col-3">
-                        <DatePicker className="input input-bordered w-full max-w-xs" selected={selectedDate} onChange={handleDateChange} />
-                    </div> */}
-                    <Card className="w-full h-full p-6 bg-base-100 mt-6">
+                    <Card className="w-full h-full p-6 bg-base-100">
                         <h5 className="card-title">Welcome to Wikipedia Feeds</h5>
                         <div>
                             <p className="line-clamp-2">Wikipedia Feeds is a web application that allows you to see the most read articles and the events that happened on this day in history.</p>
@@ -129,9 +125,7 @@ function App() {
                                                 <Card
                                                     // className="w-full h-full p-6 bg-base-100 shadow-xl mt-6"
                                                     //make diferent the card when is seen
-                                                    className={`w-full h-full p-6 bg-base-100 shadow-xl mt-6
-                                                ${listSeenTfa.find((seen) => seen.title === feed.title) ? "bg-base-300" : ""}
-                                                `}
+                                                    className={`w-full h-full p-6 bg-base-100 shadow-xl mt-6 ${listSeenTfa.find((seen) => seen.title === feed.title) ? "bg-base-300 opacity-50" : ""}`}
                                                     imgSrc={feed.thumbnail?.source}
                                                     imgStyle={{
                                                         height: "100px",
