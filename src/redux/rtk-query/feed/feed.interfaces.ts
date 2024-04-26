@@ -7,7 +7,7 @@ export interface IWikipediaFeedResponse {
 }
 
 export interface IWikipediaFeedRequest {
-    lang: string;
+    lang: TypeLanguage;
     date: string;
 }
 
